@@ -1,5 +1,6 @@
 # manager-api
 # API REST de gestion de fiches clients
+![Diagramme sans nom](https://github.com/LYAG/manager-api/assets/31630722/f5e85ba9-578f-4557-a757-5580f6986c3c)
 
 Cette API REST en Java Spring Boot permet de gérer les fiches clients. Elle utilise une base de données MySQL pour stocker les informations des clients.
 
