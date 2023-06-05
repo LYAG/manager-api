@@ -4,11 +4,13 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr:'5'))    
     }
   
-        stages('Test with SonarQube') {
+        stages {
+          stage ('Test with SonarQube'){
             steps {
                 withSonarQubeEnv(installationName: 'sq1') {
                     sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
                 }
+            }
             }
         }
     }
