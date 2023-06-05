@@ -3,21 +3,7 @@ pipeline {
     options {
         builDiscarder(logRotator(numTokeepStr:'5'))    
     }
-    
-    stages {
-        stage('Build') {
-            steps {
-                git 'https://github.com/LYAG/manager-api.git'
-                sh 'mvn clean package'
-            }
-        }
-        
-        stage('Run') {
-            steps {
-                sh 'java -jar target/app.jar'
-            }
-        }
-        
+  
         stage('Test with SonarQube') {
             steps {
                 withSonarQubeEnv(installationName: 'sq1') {
