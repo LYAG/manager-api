@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'linux' }
     options {
-        buildDiscarder(logRotator(numTokeepStr:'5'))    
+        buildDiscarder(logRotator(numToKeepStr:'5'))    
     }
   
         stage('Test with SonarQube') {
