@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent { label 'linux' }
+    options {
+        builDiscarder(logRotator(numTokeepStr:'5'))    
+    }
     
     stages {
         stage('Build') {
@@ -17,8 +20,8 @@ pipeline {
         
         stage('Test with SonarQube') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+                withSonarQubeEnv(installationName: 'sq1') {
+                    sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
                 }
             }
         }
