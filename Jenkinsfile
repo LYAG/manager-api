@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'linux' }
     options {
-        builDiscarder(logRotator(numTokeepStr:'5'))    
+        buildDiscarder(logRotator(numTokeepStr:'5'))    
     }
   
         stage('Test with SonarQube') {
@@ -28,4 +28,4 @@ pipeline {
             emailext body: 'Le pipeline Jenkins a échoué !', subject: 'Pipeline Jenkins en échec', to: 'yessiloukou@gmail.com'
         }
     }
-}
+
